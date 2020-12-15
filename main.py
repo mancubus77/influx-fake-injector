@@ -30,7 +30,7 @@ def run():
             metric["ts"] = datetime.utcnow().isoformat(sep=' ', timespec='milliseconds')
             print(json.dumps(metric))
             # client.write_points([metric])
-            producer.send(TOPIC, bytes(json.dumps(metric)))
+            producer.send(TOPIC, bytes(json.dumps(metric),encoding='utf8'))
 
 
 if __name__ == "__main__":
