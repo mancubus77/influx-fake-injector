@@ -27,10 +27,10 @@ def run():
                 "bytes_in": random.randint(0, 100),
                 "bytes": random.randint(0, 100),
             }
-            metric["ts"] = datetime.utcnow().isoformat(sep=' ', timespec='milliseconds')
-            print(json.dumps(metric))
+            metric["ts"] = datetime.utcnow().isoformat(sep=" ", timespec="milliseconds")
+            # print(json.dumps(metric))
             # client.write_points([metric])
-            producer.send(TOPIC, bytes(json.dumps(metric),encoding='utf8'))
+            producer.send(TOPIC, bytes(json.dumps(metric), encoding="utf8"))
 
 
 if __name__ == "__main__":
